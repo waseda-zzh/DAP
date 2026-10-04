@@ -1,4 +1,4 @@
-# DAP: Dynamic Adversarial Patch (training code)
+# DAP: Dynamic Adversarial Patch 
 
 This repository contains the training code of the patch generation pipeline described in
 
@@ -21,12 +21,6 @@ The pipeline has three components. They are trained offline in the order below (
 3. **Context-aware adapter.** A scene-conditioned modulator adjusts the fused patch for a given deployment scene. It is optimized with the frozen proxy together with gradient, luminance and display-gamut losses.
 
 Run the commands from the repository root so that the three packages are importable. Stage 3 loads the proxy trained in stage 1 and keeps it frozen.
-
-## What is not included
-
-- **Trained models.** No checkpoints of the proxy, the generator or the adapter are released.
-- **Configuration files.** Each training script reads a YAML file passed with `--config`. The fields it expects are those parsed in `load_train_config` (`orb_proxy/train_orb_proxy_kitti.py`) and in `main()` (`pattern_unet/train.py`, `env_adapter/train.py`).
-- **Data.** Stage 1 uses KITTI odometry sequences, stage 2 uses advertisement images and a feature-inducing template, and stage 3 uses CARLA frames with the homography of the billboard region. These are not redistributed here.
 
 ## Requirements
 
